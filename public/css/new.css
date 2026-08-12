@@ -1,3 +1,5 @@
+/* ================= GENERAL ================= */
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
@@ -20,7 +22,7 @@ body {
 /* ================= NAVBAR ================= */
 
 .navbar {
-    height: 5rem;
+    min-height: 5rem;
     background-color: #ffffff;
 
     transition:
@@ -42,6 +44,37 @@ body {
 
 .nav-link:hover {
     color: #fe424d !important;
+}
+
+
+/* ================= NAVBAR SEARCH ================= */
+
+.navbar-search form {
+    display: flex;
+    align-items: center;
+}
+
+.search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+}
+
+.btn-search {
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    padding: 0 1rem;
+}
+
+.btn-search:hover {
+    background-color: #fe424d;
+    color: white;
+}
+
+.btn-search i {
+    margin-right: 0.5rem;
 }
 
 
@@ -212,8 +245,51 @@ body {
 }
 
 
+/* ================= FILTERS ================= */
+
+#filters {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    scrollbar-width: none;
+}
+
+#filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    flex: 0 0 auto;
+    text-align: center;
+    min-width: 70px;
+
+    cursor: pointer;
+
+    color: #222;
+
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.filter i {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.filter p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+
 /* ================================================= */
-/* ================= DARK MODE ==================== */
+/* ================= DARK MODE ===================== */
 /* ================================================= */
 
 body.dark {
@@ -255,15 +331,11 @@ body.dark .search-inp::placeholder {
 }
 
 
-/* ---------- FILTER / CATEGORIES ---------- */
+/* ---------- FILTERS ---------- */
 
 body.dark #filters {
     background-color: #121212 !important;
     color: #ffffff !important;
-
-    transition:
-        background-color 0.4s ease,
-        color 0.4s ease;
 }
 
 body.dark #filters a {
@@ -274,20 +346,9 @@ body.dark #filters i {
     color: #dddddd;
 }
 
-
-/* Agar filters ki class "filters" hai */
-
 body.dark .filters {
     background-color: #121212 !important;
     color: #ffffff !important;
-}
-
-body.dark .filters a {
-    color: #dddddd !important;
-}
-
-body.dark .filters i {
-    color: #dddddd;
 }
 
 
@@ -298,11 +359,6 @@ body.dark .listing-card {
     background-color: #1e1e1e !important;
     color: #ffffff !important;
     border-color: #333333 !important;
-
-    transition:
-        background-color 0.4s ease,
-        color 0.4s ease,
-        border-color 0.4s ease;
 }
 
 body.dark .card-body {
@@ -317,9 +373,6 @@ body.dark .card-title {
 body.dark .card-text {
     color: #dddddd !important;
 }
-
-
-/* ---------- LISTING LINKS ---------- */
 
 body.dark .listing-link {
     color: #ffffff !important;
@@ -338,11 +391,11 @@ body.dark .f-info-links a {
 }
 
 body.dark .f-info-brand {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 body.dark .f-info-socials {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 
@@ -426,7 +479,7 @@ body.dark .modal-footer {
 }
 
 
-/* ---------- SMOOTH TRANSITION ---------- */
+/* ---------- SMOOTH TRANSITIONS ---------- */
 
 .navbar,
 .card,
@@ -444,57 +497,73 @@ body.dark .modal-footer {
 }
 
 
+/* ================================================= */
+/* ================= TABLET ======================== */
+/* ================================================= */
+
+@media (max-width: 767.98px) {
+
+    /* Navbar height auto on mobile */
+    .navbar {
+        min-height: 4.5rem;
+        height: auto;
+    }
+
+    /* Mobile navbar menu */
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+
+    /* Navbar links vertically */
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.7rem 0;
+    }
+
+    /* Search section */
+    .navbar-search {
+        margin: 0 !important;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-search form {
+        width: 100%;
+        display: flex;
+    }
+
+    .search-inp {
+        width: 100%;
+        min-width: 0;
+        padding: 0.5rem 1rem;
+    }
+
+    .btn-search {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Right navbar section */
+    .navbar-right {
+        margin-left: 0 !important;
+        padding-top: 0.5rem;
+    }
+
+    /* Theme button */
+    #themeToggle {
+        width: fit-content;
+        margin-bottom: 0.5rem;
+    }
 
 
-/* ================= FILTERS ================= */
-
-#filters {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 1rem 0;
-
-    overflow-x: auto;
-    white-space: nowrap;
-
-    scrollbar-width: none;
-}
-
-#filters::-webkit-scrollbar {
-    display: none;
-}
-
-.filter {
-    flex: 0 0 auto;
-    text-align: center;
-    min-width: 70px;
-
-    cursor: pointer;
-
-    color: #222;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.filter i {
-    font-size: 1.5rem;
-    margin-bottom: 0.4rem;
-}
-
-.filter p {
-    margin: 0;
-    font-size: 0.8rem;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
+    /* ================= FILTERS ================= */
 
     #filters {
         gap: 1.5rem;
         padding: 0.8rem 0.5rem;
 
-        /* Phone me horizontal scrolling */
         overflow-x: auto;
         overflow-y: hidden;
 
@@ -515,10 +584,49 @@ body.dark .modal-footer {
 }
 
 
-/* ================= SMALL MOBILE ================= */
+/* ================================================= */
+/* ================= SMALL MOBILE ================== */
+/* ================================================= */
 
 @media (max-width: 480px) {
 
+    .navbar {
+        min-height: 4rem;
+    }
+
+    .navbar-collapse {
+        padding: 0.7rem 0;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .fa-compass {
+        font-size: 1.8rem;
+    }
+
+    /* Search */
+    .navbar-search form {
+        width: 100%;
+    }
+
+    .search-inp {
+        font-size: 0.9rem;
+        padding: 0.45rem 0.8rem;
+    }
+
+    .btn-search {
+        padding: 0 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-search i {
+        margin-right: 0.2rem;
+    }
+
+
+    /* Filters */
     #filters {
         gap: 1.2rem;
         padding: 0.7rem 0.3rem;
