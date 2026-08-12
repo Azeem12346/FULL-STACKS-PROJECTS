@@ -1,43 +1,71 @@
-body
-{
-    font-family: "plus jakarta sans", sans-serif !important;
-     display: flex;
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
 
-.container{
+.container {
     flex: 1;
-
 }
 
-.navbar{
+
+/* ================= NAVBAR ================= */
+
+.navbar {
     height: 5rem;
-    background-color: white;
-}
-.fa-compass{
-  color: #fe424d;  
-  font-size: 2rem;
+    background-color: #ffffff;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
 
-.nav-link{
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
     color: #222222 !important;
-    
-}
-.f-info-links a{
-   text-decoration: none;
-   color: #222222; 
+
+    transition:
+        color 0.3s ease;
 }
 
-.f-info-links a:hover{
+.nav-link:hover {
+    color: #fe424d !important;
+}
+
+
+/* ================= FOOTER ================= */
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+
+    transition: color 0.3s ease;
+}
+
+.f-info-links a:hover {
     text-decoration: underline;
 }
+
 .f-info-links,
-.f-info-socials, .f-info-brand{
+.f-info-socials,
+.f-info-brand {
     width: 100%;
     font-size: 1.2rem;
     margin-right: 2rem;
     vertical-align: middle;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,70 +76,463 @@ body
     font-size: 1.2rem;
     display: inline-block;
 }
-    
-   
-.f-info{
+
+.f-info {
     text-align: center;
     height: 8rem;
-    background-color: #ebebeb ;
+
+    background-color: #ebebeb;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
 
-.cards{
+
+/* ================= CARDS ================= */
+
+.cards {
     border: none !important;
     margin-bottom: 2rem;
+
+    background-color: transparent;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
-.card-img-top
-{
+
+.card {
+    border: none !important;
+    background-color: #ffffff;
+    color: #222222;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
-
 }
-.card-body
-{
+
+.card-body {
     padding: 0;
-}
-.card-text{
 
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+.card-text {
     font-weight: 400 !important;
 }
-.listing-link
-{
+
+.card-title {
+    transition: color 0.4s ease;
+}
+
+.listing-link {
     text-decoration: none;
 }
 
-.card-img-overlay{
- opacity: 0;   
+
+/* ================= CARD OVERLAY ================= */
+
+.card-img-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
-.card-img-overlay:hover{
+
+.card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
 }
-.add-btn{
-  background-color: #fe424d !important;  
-  border: none;
-}
- 
-/*  Edit ejs*/
-.edit-btn{
-    background-color: #fe424d !important;  
-  border: none;
+
+
+/* ================= BUTTONS ================= */
+
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
-/* show page*/
-.show-img{
+.add-btn:hover {
+    background-color: #e73542 !important;
+    transform: translateY(-1px);
+}
+
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.edit-btn:hover {
+    background-color: #e73542 !important;
+    transform: translateY(-1px);
+}
+
+
+/* ================= SHOW PAGE ================= */
+
+.show-img {
     height: 30vh;
 }
-.btns{
+
+.btns {
     display: flex;
 }
 
-.listing-card{
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
-   
+
+
+/* ================================================= */
+/* ================= DARK MODE ==================== */
+/* ================================================= */
+
+body.dark {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+
+/* ---------- NAVBAR ---------- */
+
+body.dark .navbar {
+    background-color: #1b1b1b !important;
+    color: #ffffff;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+body.dark .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark .nav-link:hover {
+    color: #fe424d !important;
+}
+
+
+/* ---------- SEARCH ---------- */
+
+body.dark .search-inp {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #555555 !important;
+}
+
+body.dark .search-inp::placeholder {
+    color: #bbbbbb !important;
+}
+
+
+/* ---------- FILTER / CATEGORIES ---------- */
+
+body.dark #filters {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+body.dark #filters a {
+    color: #dddddd !important;
+}
+
+body.dark #filters i {
+    color: #dddddd;
+}
+
+
+/* Agar filters ki class "filters" hai */
+
+body.dark .filters {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+body.dark .filters a {
+    color: #dddddd !important;
+}
+
+body.dark .filters i {
+    color: #dddddd;
+}
+
+
+/* ---------- CARDS ---------- */
+
+body.dark .card,
+body.dark .listing-card {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+body.dark .card-body {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+body.dark .card-title {
+    color: #ffffff !important;
+}
+
+body.dark .card-text {
+    color: #dddddd !important;
+}
+
+
+/* ---------- LISTING LINKS ---------- */
+
+body.dark .listing-link {
+    color: #ffffff !important;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+body.dark .f-info {
+    background-color: #1b1b1b !important;
+    color: #ffffff !important;
+}
+
+body.dark .f-info-links a {
+    color: #dddddd !important;
+}
+
+body.dark .f-info-brand {
+    color: #ffffff !important;
+}
+
+body.dark .f-info-socials {
+    color: #ffffff !important;
+}
+
+
+/* ---------- GENERAL TEXT ---------- */
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark label {
+    color: #f5f5f5;
+}
+
+
+/* ---------- FORMS ---------- */
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #aaaaaa;
+}
+
+
+/* ---------- BUTTON TRANSITION ---------- */
+
+body.dark button {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* ---------- BOOTSTRAP TEXT COLORS ---------- */
+
+body.dark .text-dark {
+    color: #ffffff !important;
+}
+
+body.dark .text-muted {
+    color: #aaaaaa !important;
+}
+
+
+/* ---------- DROPDOWN ---------- */
+
+body.dark .dropdown-menu {
+    background-color: #1e1e1e !important;
+    border-color: #444444;
+}
+
+body.dark .dropdown-item {
+    color: #ffffff !important;
+}
+
+body.dark .dropdown-item:hover {
+    background-color: #333333 !important;
+}
+
+
+/* ---------- MODAL ---------- */
+
+body.dark .modal-content {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+body.dark .modal-header,
+body.dark .modal-footer {
+    border-color: #444444;
+}
+
+
+/* ---------- SMOOTH TRANSITION ---------- */
+
+.navbar,
+.card,
+.card-body,
+.f-info,
+.listing-card,
+.nav-link,
+.search-inp,
+#filters,
+.filters {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+
+
+/* ================= FILTERS ================= */
+
+#filters {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    scrollbar-width: none;
+}
+
+#filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    flex: 0 0 auto;
+    text-align: center;
+    min-width: 70px;
+
+    cursor: pointer;
+
+    color: #222;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.filter i {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.filter p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    #filters {
+        gap: 1.5rem;
+        padding: 0.8rem 0.5rem;
+
+        /* Phone me horizontal scrolling */
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        white-space: nowrap;
+    }
+
+    .filter {
+        min-width: 65px;
+    }
+
+    .filter i {
+        font-size: 1.3rem;
+    }
+
+    .filter p {
+        font-size: 0.72rem;
+    }
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+
+    #filters {
+        gap: 1.2rem;
+        padding: 0.7rem 0.3rem;
+    }
+
+    .filter {
+        min-width: 60px;
+    }
+
+    .filter i {
+        font-size: 1.2rem;
+    }
+
+    .filter p {
+        font-size: 0.68rem;
+    }
+}
