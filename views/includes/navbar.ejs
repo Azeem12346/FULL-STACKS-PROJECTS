@@ -1,4 +1,7 @@
 <style>
+
+    /* ================= SEARCH BUTTON ================= */
+
     .btn-search {
         background-color: #fe424d;
         color: white;
@@ -24,14 +27,56 @@
         font-size: 1rem;
     }
 
+
+    /* ================= THEME BUTTON ================= */
+
     #themeToggle {
         border: 1px solid #ccc;
         background: transparent;
+        color: #222;
         border-radius: 8px;
         padding: 6px 12px;
         margin: 5px;
         cursor: pointer;
+        transition: all 0.3s ease;
     }
+
+    #themeToggle:hover {
+        background-color: #f1f1f1;
+    }
+
+
+    /* ================= HAMBURGER BUTTON ================= */
+
+    .custom-toggler {
+        border: 2px solid #555 !important;
+        border-radius: 10px;
+        width: 48px;
+        height: 42px;
+        padding: 7px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .custom-toggler:focus {
+        box-shadow: none !important;
+        outline: none;
+    }
+
+    .hamburger-line {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #333;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
 
     /* ================= MOBILE NAVBAR ================= */
 
@@ -50,16 +95,16 @@
             font-size: 2rem;
         }
 
-        .navbar-toggler {
-            border: 2px solid #444;
-            border-radius: 10px;
-            padding: 8px 10px;
+
+        /* Hamburger */
+
+        .custom-toggler {
             margin-left: auto;
+            flex-shrink: 0;
         }
 
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
+
+        /* Mobile Menu */
 
         .navbar-collapse {
             margin-top: 1rem;
@@ -67,16 +112,22 @@
             border-radius: 12px;
             background-color: #ffffff;
             border: 1px solid #ddd;
+            width: 100%;
         }
+
 
         .navbar-nav {
             width: 100%;
         }
 
+
         .navbar-nav .nav-link {
             padding: 0.7rem 0;
             font-size: 1rem;
         }
+
+
+        /* Search */
 
         .navbar-search {
             margin: 0 !important;
@@ -97,6 +148,9 @@
             padding: 0.6rem 1rem;
         }
 
+
+        /* Right side */
+
         .navbar-right {
             margin: 0 !important;
             align-items: flex-start;
@@ -105,67 +159,111 @@
         #themeToggle {
             margin: 0.5rem 0;
         }
+
     }
 
-    /* ================= DARK MOBILE NAVBAR ================= */
+
+    /* ================= DARK MODE ================= */
 
     body.dark .navbar-collapse {
         background-color: #1b1b1b !important;
         border-color: #444;
     }
 
-    body.dark .navbar-toggler {
-        border-color: #666;
+
+    body.dark .custom-toggler {
+        border-color: #777 !important;
+        background-color: #1b1b1b;
     }
+
+
+    body.dark .hamburger-line {
+        background-color: #ffffff;
+    }
+
 
     body.dark #themeToggle {
         color: white;
         border-color: #666;
         background-color: #2a2a2a;
     }
+
+
+    body.dark #themeToggle:hover {
+        background-color: #333;
+    }
+
 </style>
 
+
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
 
     <div class="container-fluid">
 
-        <!-- Logo -->
+
+        <!-- ================= LOGO ================= -->
+
         <a class="navbar-brand" href="/listings">
+
             <i class="fa-regular fa-compass"></i>
+
         </a>
 
 
-        <!-- Mobile Toggle -->
+        <!-- ================= MOBILE HAMBURGER ================= -->
+
         <button
-            class="navbar-toggler"
+            class="navbar-toggler custom-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup"
             aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation"
+        >
 
-            <span class="navbar-toggler-icon"></span>
+            <span class="hamburger-line"></span>
+
+            <span class="hamburger-line"></span>
+
+            <span class="hamburger-line"></span>
 
         </button>
 
 
-        <!-- Navbar Content -->
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <!-- ================= NAVBAR CONTENT ================= -->
 
-            <!-- Explore -->
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNavAltMarkup"
+        >
+
+
+            <!-- ================= EXPLORE ================= -->
+
             <div class="navbar-nav">
-                <a class="nav-link" href="/listings">
+
+                <a
+                    class="nav-link"
+                    href="/listings"
+                >
                     Explore
                 </a>
+
             </div>
 
 
-            <!-- Search -->
+            <!-- ================= SEARCH ================= -->
+
             <div class="navbar-nav ms-auto navbar-search">
 
-                <form action="/listings" method="GET" class="d-flex">
+                <form
+                    action="/listings"
+                    method="GET"
+                    class="d-flex"
+                >
 
                     <input
                         class="form-control me-2 search-inp"
@@ -174,9 +272,15 @@
                         placeholder="Search destinations"
                     >
 
-                    <button class="btn btn-search" type="submit">
+                    <button
+                        class="btn btn-search"
+                        type="submit"
+                    >
+
                         <i class="fa-solid fa-magnifying-glass"></i>
+
                         Search
+
                     </button>
 
                 </form>
@@ -184,43 +288,75 @@
             </div>
 
 
-            <!-- Right Side -->
+            <!-- ================= RIGHT SIDE ================= -->
+
             <div class="navbar-nav ms-auto navbar-right">
 
-                <!-- Dark Mode -->
-                <button id="themeToggle" type="button">
+
+                <!-- DARK MODE -->
+
+                <button
+                    id="themeToggle"
+                    type="button"
+                >
                     Dark 🌙
                 </button>
 
 
-                <!-- Add New -->
-                <a class="nav-link" href="/listings/new">
+                <!-- ADD NEW -->
+
+                <a
+                    class="nav-link"
+                    href="/listings/new"
+                >
                     Add New
                 </a>
 
 
+                <!-- ================= USER NOT LOGGED IN ================= -->
+
                 <% if(!currUser) { %>
 
-                    <a class="nav-link" href="/signup">
+                    <!-- SIGN UP -->
+
+                    <a
+                        class="nav-link"
+                        href="/signup"
+                    >
                         <b>Sign up</b>
                     </a>
 
-                    <a class="nav-link" href="/login">
+
+                    <!-- LOGIN -->
+
+                    <a
+                        class="nav-link"
+                        href="/login"
+                    >
                         <b>Log in</b>
                     </a>
 
                 <% } %>
 
 
+                <!-- ================= USER LOGGED IN ================= -->
+
                 <% if(currUser) { %>
 
-                    <a class="nav-link" href="/logout">
+                    <!-- LOGOUT -->
+
+                    <a
+                        class="nav-link"
+                        href="/logout"
+                    >
                         <b>Log out</b>
                     </a>
 
                 <% } %>
 
+
             </div>
+
 
         </div>
 
